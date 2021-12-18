@@ -2,7 +2,9 @@
 
 # Docker Guacamole
 
-**Disclaimer:** This work is based on the work of: https://github.com/oznu/docker-guacamole
+**Disclaimer:** This work is based on the work of: https://github.com/oznu/docker-guacamole and https://github.com/MaxWaldorf/guacamole
+
+**Changes:** Changed landing page of guacamole to http://\<server\>**/guacamole/** - this is required for a reverse proxy to work and the configuration described in https://guacamole.apache.org/doc/gug/proxying-guacamole.html#apache can be used.
 
 A Docker Container for [Apache Guacamole](https://guacamole.apache.org/), a client-less remote desktop gateway. It supports standard protocols like VNC, RDP, and SSH over HTML5.
 
@@ -10,13 +12,13 @@ This image will run on most platforms that support Docker including Docker for a
 
 This container runs the guacamole web client, the guacd server and a postgres database.
 
-## Usage (works for x86_64 and arm64v8, no support for 32 bits)
+## Usage (works for x86_64)
 
 ```shell
 docker run \
   -p 8080:8080 \
   -v </path/to/config>:/config \
-  maxwaldorf/guacamole
+  ghcr.io/ptr33/guacamole
 ```
 
 ## Parameters
@@ -38,7 +40,7 @@ docker run \
   -p 8080:8080 \
   -v </path/to/config>:/config \
   -e "EXTENSIONS=auth-ldap,auth-duo"
-  maxwaldorf/guacamole
+  ghcr.io/ptr33/guacamole
 ```
 
 Currently the available extensions are:
@@ -65,7 +67,7 @@ Mapped volumes behave differently when running Docker for Windows and you may en
 version: "2"
 services:
   guacamole:
-    image: maxwaldorf/guacamole
+    image: ghcr.io/ptr33/guacamole
     container_name: guacamole
     volumes:
       - postgres:/config
