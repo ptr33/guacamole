@@ -1,0 +1,5 @@
+#!/bin/bash
+BRANCH=`git branch --show-current`
+if [ $BRANCH = "main" ]; then BRANCH="latest"; fi
+docker build . -t ghcr.io/ptr33/guacamole:$BRANCH   && \
+docker push ghcr.io/ptr33/guacamole:$BRANCH
