@@ -2,17 +2,17 @@
 FROM tomcat:jdk15-openjdk-slim-buster
 
 ARG APPLICATION="guacamole"
-ARG BUILD_RFC3339="2022-01-10T19:54:00Z"
+ARG BUILD_RFC3339="2023-11-01T10:33:00Z"
 ARG REVISION="local"
-ARG DESCRIPTION="Guacamole 1.4.0 on amd64"
+ARG DESCRIPTION="Guacamole 1.5.3 on amd64"
 ARG PACKAGE="ghcr.io/ptr33/guacamole"
-ARG VERSION="1.4.0"
+ARG VERSION="1.5.3"
 
 STOPSIGNAL SIGKILL
 
 LABEL org.opencontainers.image.ref.name="${PACKAGE}" \
       org.opencontainers.image.created=$BUILD_RFC3339 \
-      org.opencontainers.image.authors="MaxWaldorf,OZNU" \
+      org.opencontainers.image.authors="MaxWaldorf,OZNU,ptr33" \
       org.opencontainers.image.documentation="https://github.com/${PACKAGE}/README.md" \
       org.opencontainers.image.description="${DESCRIPTION}" \
       org.opencontainers.image.licenses="GPLv3" \
@@ -31,7 +31,7 @@ ENV \
 
 
 ENV ARCH=amd64 \
-GUAC_VER=1.4.0 \
+GUAC_VER=1.5.3 \
 GUACAMOLE_HOME=/app/guacamole \
 PG_MAJOR=11 \
 PGDATA=/config/postgres \
