@@ -2,11 +2,11 @@
 FROM tomcat:jdk15-openjdk-slim-buster
 
 ARG APPLICATION="guacamole"
-ARG BUILD_RFC3339="2024-04-05T10:33:00Z"
+ARG BUILD_RFC3339="2025-03-10T10:33:00Z"
 ARG REVISION="local"
-ARG DESCRIPTION="Guacamole 1.5.4 on amd64"
+ARG DESCRIPTION="Guacamole 1.5.5 on amd64"
 ARG PACKAGE="ghcr.io/ptr33/guacamole"
-ARG VERSION="1.5.4"
+ARG VERSION="1.5.5"
 
 STOPSIGNAL SIGKILL
 
@@ -31,7 +31,7 @@ ENV \
 
 
 ENV ARCH=amd64 \
-GUAC_VER=1.5.4 \
+GUAC_VER=1.5.5 \
 GUACAMOLE_HOME=/app/guacamole \
 PG_MAJOR=11 \
 PGDATA=/config/postgres \
@@ -54,10 +54,12 @@ RUN curl -SLO "https://github.com/just-containers/s6-overlay/releases/download/v
 WORKDIR ${GUACAMOLE_HOME}
 
 # Look for debian testing packets
-RUN echo "deb http://deb.debian.org/debian buster-backports main contrib non-free" >> /etc/apt/sources.list
+# RUN echo "deb http://deb.debian.org/debian buster-backports main contrib non-free" >> /etc/apt/sources.list
+# RUN echo "deb http://deb.debian.org/debian main contrib non-free" >> /etc/apt/sources.list
 
 # Install dependencies
-RUN apt-get update && apt-get -t buster-backports install -y \
+# RUN apt-get update && apt-get -t buster-backports install -y \
+RUN apt-get update && apt-get install -y \
     build-essential \
     libcairo2-dev libjpeg62-turbo-dev libpng-dev libtool-bin libossp-uuid-dev \
     libavcodec-dev libavformat-dev libavutil-dev libswscale-dev \
