@@ -1,5 +1,5 @@
 #FROM alpine:latest
-FROM tomcat:jdk15-openjdk-slim-buster
+FROM tomcat:10-jdk17-openjdk-slim-bullseye
 
 ARG APPLICATION="guacamole"
 ARG BUILD_RFC3339="2026-07-06T10:33:00Z"
