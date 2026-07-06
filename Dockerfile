@@ -2,11 +2,11 @@
 FROM tomcat:jdk15-openjdk-slim-buster
 
 ARG APPLICATION="guacamole"
-ARG BUILD_RFC3339="2025-03-10T10:33:00Z"
+ARG BUILD_RFC3339="2026-07-06T10:33:00Z"
 ARG REVISION="local"
-ARG DESCRIPTION="Guacamole 1.5.5 on amd64"
+ARG DESCRIPTION="Guacamole 1.6.0 on amd64"
 ARG PACKAGE="ghcr.io/ptr33/guacamole"
-ARG VERSION="1.5.5"
+ARG VERSION="1.6.0"
 
 STOPSIGNAL SIGKILL
 
@@ -31,7 +31,7 @@ ENV \
 
 
 ENV ARCH=amd64 \
-GUAC_VER=1.5.5 \
+GUAC_VER=1.6.0 \
 GUACAMOLE_HOME=/app/guacamole \
 PG_MAJOR=11 \
 PGDATA=/config/postgres \
