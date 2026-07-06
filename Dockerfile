@@ -1,5 +1,6 @@
 #FROM alpine:latest
-FROM tomcat:10-jdk17-openjdk-slim-bullseye
+# don't upgrade to version 10 as guacamole needs javax architecture
+FROM tomcat:9-jdk17-openjdk-slim-bullseye
 
 ARG APPLICATION="guacamole"
 ARG BUILD_RFC3339="2026-07-06T10:33:00Z"
@@ -39,7 +40,7 @@ POSTGRES_USER=guacamole \
 POSTGRES_DB=guacamole_db
 
 #Add essential packages but install postgres verison 11 (instead of latest version 13)
-# Add essential packages and configure the official PostgreSQL repo for version 11
+# Add essential packages and configure the official PostgreSQL repo for version 11 (database is still version 11)
 RUN apt-get update && apt-get install -y curl gnupg2 lsb-release apt-utils cifs-utils ghostscript \
     && sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list' \
     && curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
