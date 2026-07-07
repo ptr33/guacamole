@@ -1,5 +1,3 @@
-[![Docker Automated](https://img.shields.io/docker/automated/maxwaldorf/guacamole)](https://hub.docker.com/r/maxwaldorf/guacamole/) [![Docker Build Status](https://img.shields.io/docker/build/maxwaldorf/guacamole)](https://hub.docker.com/r/maxwaldorf/guacamole/) [![Docker Pulls](https://img.shields.io/docker/pulls/maxwaldorf/guacamole.svg)](https://hub.docker.com/r/maxwaldorf/guacamole/)
-
 # Docker Guacamole
 
 **Disclaimer:** This work is based on the work of: https://github.com/oznu/docker-guacamole and https://github.com/MaxWaldorf/guacamole
